@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Definitivo — Festival Latino Darwin 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+  --fire: #E8401C;
+  --gold: #F2A93B;
+  --sun: #F7CC5B;
+  --jungle: #1E6B45;
+  --ocean: #1A4A72;
+  --cream: #F9F3E8;
+  --ink: #0E0C0A;
+  --charcoal: #1C1A17;
+  --ash: #2E2B27;
+  --mist: rgba(249,243,232,0.06);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'Lora', serif;
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════
+   HERO — editorial magazine feel
+═══════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 80% 30%, rgba(232,64,28,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 10% 80%, rgba(30,107,69,0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 50% 10%, rgba(242,169,59,0.07) 0%, transparent 60%);
+}
+
+.hero-grid {
+  position: absolute; inset: 0; opacity: 0.04;
+  background-image:
+    linear-gradient(rgba(249,243,232,1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(249,243,232,1) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 6rem 2.5rem 3rem;
+  max-width: 1000px; margin: 0 auto; width: 100%;
+}
+
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 2.5rem;
+  animation: fadeSlide 0.7s ease both;
+}
+
+.hero-eyebrow-line {
+  height: 1px; width: 40px; background: var(--gold); flex-shrink: 0;
+}
+
+.hero-eyebrow span {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--gold);
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  animation: fadeSlide 0.7s ease 0.15s both;
+}
+
+.hero-title .line-italic {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold);
+  display: block;
+  font-size: 0.85em;
+}
+
+.hero-title .line-main {
+  display: block;
+  color: var(--cream);
+}
+
+.hero-subtitle {
+  margin-top: 2rem;
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  color: rgba(249,243,232,0.5);
+  max-width: 560px; line-height: 1.8;
+  animation: fadeSlide 0.7s ease 0.3s both;
+}
+
+.hero-pillars {
+  display: flex; flex-wrap: wrap; gap: 0.6rem;
+  margin-top: 3rem;
+  animation: fadeSlide 0.7s ease 0.45s both;
+}
+
+.hero-pill {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.45rem 1.1rem;
+  border-radius: 3px;
+  border: 1px solid;
+}
+.pill-fire { color: var(--fire); border-color: rgba(232,64,28,0.4); background: rgba(232,64,28,0.08); }
+.pill-gold { color: var(--gold); border-color: rgba(242,169,59,0.4); background: rgba(242,169,59,0.08); }
+.pill-jungle { color: #4db87a; border-color: rgba(30,107,69,0.4); background: rgba(30,107,69,0.1); }
+.pill-ocean { color: #6ba8d8; border-color: rgba(26,74,114,0.4); background: rgba(26,74,114,0.1); }
+
+.hero-meta {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(249,243,232,0.08);
+  animation: fadeSlide 0.7s ease 0.6s both;
+}
+
+.hero-stat {
+  padding: 1.8rem 2.5rem;
+  border-right: 1px solid rgba(249,243,232,0.08);
+}
+.hero-stat:last-child { border-right: none; }
+
+.hero-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem; font-weight: 700;
+  color: var(--sun); line-height: 1;
+}
+
+.hero-stat-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(249,243,232,0.35); margin-top: 0.4rem;
+}
+
+/* ═══════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════ */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(14,12,10,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(249,243,232,0.07);
+  display: flex; overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav::-webkit-scrollbar { display: none; }
+
+.nav-btn {
+  flex-shrink: 0;
+  padding: 1.1rem 1.4rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(249,243,232,0.3);
+  background: none; border: none; border-bottom: 2px solid transparent;
+  cursor: pointer; transition: all 0.25s; white-space: nowrap;
+}
+.nav-btn:hover { color: var(--gold); }
+.nav-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* ═══════════════════════════════════════
+   SECTIONS
+═══════════════════════════════════════ */
+.section {
+  display: none;
+  max-width: 960px; margin: 0 auto;
+  padding: 5rem 2.5rem 4rem;
+  animation: sectionIn 0.4s ease;
+}
+.section.active { display: block; }
+
+@keyframes sectionIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+.s-tag {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.6rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.s-tag::after { content: ''; flex: 0 0 30px; height: 1px; background: var(--gold); opacity: 0.5; }
+
+.s-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 900; line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+}
+
+.s-title em { font-style: italic; font-weight: 400; color: var(--gold); }
+
+.s-intro {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 1.05rem; line-height: 1.85;
+  color: rgba(249,243,232,0.48);
+  max-width: 680px; margin-bottom: 3.5rem;
+  margin-top: 0.8rem;
+}
+
+/* ═══════════════════════════════════════
+   COMPONENTS
+═══════════════════════════════════════ */
+
+/* — Ruling line — */
+.rule { height: 1px; background: linear-gradient(90deg, transparent, rgba(249,243,232,0.12), transparent); margin: 3rem 0; }
+
+/* — Block quote — */
+.pullquote {
+  border-left: 3px solid var(--fire);
+  padding: 1rem 0 1rem 2rem;
+  margin: 3rem 0;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  line-height: 1.5;
+  color: var(--cream);
+}
+
+/* — Label — */
+.label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.2rem;
+  display: block;
+}
+
+/* — Card grid — */
+.grid { display: grid; gap: 1.2rem; margin: 1.5rem 0; }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+.card {
+  background: var(--ash);
+  border: 1px solid rgba(249,243,232,0.07);
+  border-radius: 6px; padding: 1.8rem;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.card:hover { border-color: rgba(242,169,59,0.35); transform: translateY(-2px); }
+
+.card-icon { font-size: 1.6rem; margin-bottom: 0.9rem; }
+
+.card h3 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700; font-size: 0.95rem;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--sun); margin-bottom: 0.7rem;
+}
+
+.card p, .card li {
+  font-family: 'Lora', serif;
+  font-size: 0.87rem; line-height: 1.75;
+  color: rgba(249,243,232,0.65);
+}
+.card ul { padding-left: 1.1rem; }
+.card li { margin-bottom: 0.35rem; }
+
+/* — Audience card variants — */
+.card-fire { border-color: rgba(232,64,28,0.2); }
+.card-fire:hover { border-color: rgba(232,64,28,0.5); }
+.card-ocean { border-color: rgba(26,74,114,0.25); }
+.card-ocean:hover { border-color: rgba(26,74,114,0.5); }
+.card-jungle { border-color: rgba(30,107,69,0.2); }
+.card-jungle:hover { border-color: rgba(30,107,69,0.45); }
+.card-gold { border-color: rgba(242,169,59,0.2); }
+.card-gold:hover { border-color: rgba(242,169,59,0.5); }
+
+/* — Alert box — */
+.alert {
+  border-radius: 6px; padding: 1.5rem 1.8rem; margin: 2rem 0;
+  border-left: 4px solid;
+}
+.alert h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.alert p, .alert li {
+  font-family: 'Lora', serif;
+  font-size: 0.87rem; line-height: 1.75;
+}
+.alert ul { padding-left: 1.1rem; margin-top: 0.4rem; }
+.alert li { margin-bottom: 0.35rem; }
+
+.alert-fire { background: rgba(232,64,28,0.08); border-color: var(--fire); }
+.alert-fire h4 { color: #f07060; }
+.alert-fire p, .alert-fire li { color: rgba(249,243,232,0.72); }
+
+.alert-gold { background: rgba(242,169,59,0.08); border-color: var(--gold); }
+.alert-gold h4 { color: var(--gold); }
+.alert-gold p, .alert-gold li { color: rgba(249,243,232,0.72); }
+
+.alert-jungle { background: rgba(30,107,69,0.1); border-color: #2ecc71; }
+.alert-jungle h4 { color: #5cb87a; }
+.alert-jungle p, .alert-jungle li { color: rgba(249,243,232,0.72); }
+
+.alert-ocean { background: rgba(26,74,114,0.12); border-color: #3498db; }
+.alert-ocean h4 { color: #6ba8d8; }
+.alert-ocean p, .alert-ocean li { color: rgba(249,243,232,0.72); }
+
+/* — Flow steps — */
+.flow { margin: 2rem 0; }
+.flow-item {
+  display: grid; grid-template-columns: 2.8rem 1fr;
+  gap: 1.2rem; padding-bottom: 2rem;
+  position: relative;
+}
+.flow-item:not(:last-child)::before {
+  content: ''; position: absolute;
+  left: 1.35rem; top: 2.8rem; bottom: 0; width: 1px;
+  background: linear-gradient(to bottom, rgba(242,169,59,0.4), transparent);
+}
+.flow-dot {
+  width: 2.8rem; height: 2.8rem; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.dot-fire { background: var(--fire); color: #fff; }
+.dot-ocean { background: var(--ocean); color: var(--cream); }
+.dot-jungle { background: var(--jungle); color: var(--cream); }
+.dot-gold { background: var(--gold); color: var(--ink); }
+
+.flow-body h4 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700; font-size: 0.9rem;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--sun); margin-bottom: 0.45rem;
+  padding-top: 0.55rem;
+}
+.flow-body p, .flow-body li {
+  font-family: 'Lora', serif;
+  font-size: 0.86rem; line-height: 1.75;
+  color: rgba(249,243,232,0.65);
+}
+.flow-body ul { padding-left: 1.1rem; margin-top: 0.35rem; }
+.flow-body li { margin-bottom: 0.3rem; }
+
+/* — Tags / chips — */
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+.tag {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.25rem 0.7rem; border-radius: 2px; border: 1px solid;
+}
+.t-fire { color: #f07060; border-color: rgba(232,64,28,0.35); background: rgba(232,64,28,0.1); }
+.t-gold { color: var(--gold); border-color: rgba(242,169,59,0.35); background: rgba(242,169,59,0.08); }
+.t-jungle { color: #5cb87a; border-color: rgba(30,107,69,0.35); background: rgba(30,107,69,0.1); }
+.t-ocean { color: #6ba8d8; border-color: rgba(26,74,114,0.35); background: rgba(26,74,114,0.1); }
+
+/* — Narrative contrast box — */
+.contrast-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 1.5rem 0; }
+@media(max-width:580px){ .contrast-grid { grid-template-columns:1fr; } }
+
+.contrast-box { padding: 1.5rem; border-radius: 6px; }
+.contrast-old { background: rgba(232,64,28,0.07); border: 1px solid rgba(232,64,28,0.2); }
+.contrast-new { background: rgba(30,107,69,0.1); border: 1px solid rgba(30,107,69,0.28); }
+
+.contrast-box .c-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  margin-bottom: 1rem; display: block;
+}
+.contrast-old .c-label { color: #f07060; }
+.contrast-new .c-label { color: #5cb87a; }
+
+.contrast-box li {
+  font-family: 'Lora', serif;
+  font-size: 0.85rem; line-height: 1.7;
+  color: rgba(249,243,232,0.65); margin-bottom: 0.4rem;
+  list-style: none; padding-left: 0;
+}
+
+/* — Table — */
+.tbl-wrap { overflow-x: auto; margin: 2rem 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+th {
+  font-family: 'Syne', sans-serif; font-weight: 700;
+  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold); padding: 0.9rem 1rem;
+  border-bottom: 1px solid rgba(242,169,59,0.25);
+  background: rgba(242,169,59,0.06); text-align: left;
+}
+td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(249,243,232,0.05);
+  font-family: 'Lora', serif;
+  color: rgba(249,243,232,0.72); vertical-align: top; line-height: 1.55;
+}
+tr:hover td { background: rgba(249,243,232,0.02); }
+
+/* — Pillar card — */
+.pillar {
+  display: grid; grid-template-columns: auto 1fr;
+  gap: 1.2rem; align-items: start;
+  background: var(--ash); border-radius: 6px;
+  border: 1px solid rgba(249,243,232,0.07);
+  padding: 1.5rem; margin-bottom: 1rem;
+  transition: border-color 0.25s;
+}
+.pillar:hover { border-color: rgba(242,169,59,0.3); }
+
+.pillar-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem; font-weight: 700;
+  color: rgba(242,169,59,0.25); line-height: 1;
+  min-width: 2.5rem;
+}
+.pillar h4 {
+  font-family: 'Syne', sans-serif; font-weight: 700;
+  font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--sun); margin-bottom: 0.4rem;
+}
+.pillar p {
+  font-family: 'Lora', serif; font-size: 0.86rem;
+  line-height: 1.7; color: rgba(249,243,232,0.62);
+}
+.pillar .copy-ex {
+  margin-top: 0.7rem; padding: 0.7rem 1rem;
+  background: rgba(249,243,232,0.04);
+  border-left: 2px solid rgba(242,169,59,0.4);
+  border-radius: 0 4px 4px 0;
+  font-style: italic;
+  font-size: 0.84rem; color: rgba(249,243,232,0.8);
+}
+
+/* — WA chat — */
+.wa-shell {
+  background: #0f1a12; border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 1.4rem; margin: 1.5rem 0;
+}
+.wa-top {
+  display: flex; align-items: center; gap: 0.8rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding-bottom: 0.9rem; margin-bottom: 1rem;
+}
+.wa-av {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: linear-gradient(135deg, #1E6B45, #F2A93B);
+  display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+}
+.wa-top strong { display: block; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem; }
+.wa-top span { font-size: 0.7rem; color: #4caf50; }
+
+.wa-lbl {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.58rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(249,243,232,0.25); margin-bottom: 0.3rem;
+}
+.bubble {
+  border-radius: 0 12px 12px 12px;
+  padding: 0.9rem 1.2rem; max-width: 86%;
+  font-family: 'Lora', serif; font-size: 0.84rem;
+  line-height: 1.7; margin-bottom: 0.8rem;
+}
+.bubble-lat { background: #1a2e1f; color: #d4f0da; border: 1px solid rgba(30,107,69,0.4); }
+.bubble-aus { background: #1a2540; color: #ccd9f0; border: 1px solid rgba(26,74,114,0.4); border-radius: 12px 0 12px 12px; margin-left: auto; }
+.bubble-multi { background: #2a1f0f; color: #f0e0c4; border: 1px solid rgba(242,169,59,0.3); }
+.bubble time { display: block; font-size: 0.62rem; opacity: 0.4; text-align: right; margin-top: 0.4rem; }
+
+/* — Timeline — */
+.tl { margin: 2rem 0; }
+.tl-item {
+  display: grid; grid-template-columns: 120px 1fr;
+  gap: 1.4rem; margin-bottom: 1.4rem;
+}
+@media(max-width:500px){ .tl-item { grid-template-columns: 75px 1fr; } }
+.tl-date {
+  font-family: 'Syne', sans-serif; font-weight: 700;
+  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold); text-align: right; padding-top: 1rem; line-height: 1.4;
+}
+.tl-body {
+  background: var(--ash);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 6px 6px 0;
+  padding: 1rem 1.3rem;
+}
+.tl-body h4 {
+  font-family: 'Syne', sans-serif; font-weight: 700;
+  font-size: 0.84rem; letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--sun); margin-bottom: 0.35rem;
+}
+.tl-body p {
+  font-family: 'Lora', serif; font-size: 0.83rem;
+  line-height: 1.65; color: rgba(249,243,232,0.55);
+}
+
+/* — Closing card — */
+.closing {
+  text-align: center; padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba(232,64,28,0.08), rgba(30,107,69,0.1), rgba(26,74,114,0.1));
+  border: 1px solid rgba(249,243,232,0.08);
+  border-radius: 8px; margin-top: 3rem;
+}
+.closing h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  font-weight: 900; margin-bottom: 1.2rem;
+}
+.closing p {
+  font-family: 'Lora', serif; font-style: italic;
+  font-size: 1rem; line-height: 1.85;
+  color: rgba(249,243,232,0.65);
+  max-width: 600px; margin: 0 auto;
+}
+.closing strong { color: var(--sun); font-style: normal; }
+
+/* — Footer — */
+footer {
+  text-align: center; padding: 3rem 1rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.6rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: rgba(249,243,232,0.15);
+}
+
+/* — Animations — */
+@keyframes fadeSlide { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+@media(max-width:600px) {
+  .hero-meta { grid-template-columns: repeat(2,1fr); }
+  .hero-stat { padding: 1.2rem 1.4rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════ HERO ════════════════ -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span>Plan Definitivo · Asociación Latinoamericana de Darwin · 2025–2026</span>
+    </div>
+
+    <h1 class="hero-title">
+      <span class="line-italic">Enriching</span>
+      <span class="line-main">Darwin.</span>
+    </h1>
+
+    <p class="hero-subtitle">
+      Estrategia digital Low-Cost / High-Impact para posicionar la cultura latinoamericana como un puente activo hacia toda la comunidad de Darwin — y construir la Asociación para el largo plazo.
+    </p>
+
+    <div class="hero-pillars">
+      <span class="hero-pill pill-fire">Narrativa Cultural</span>
+      <span class="hero-pill pill-gold">5 Pilares de Contenido</span>
+      <span class="hero-pill pill-jungle">Guerrilla Voluntarios</span>
+      <span class="hero-pill pill-ocean">Alcance Australiano</span>
+      <span class="hero-pill pill-fire">Plan Patrocinios</span>
+      <span class="hero-pill pill-gold">Identidad Visual</span>
+      <span class="hero-pill pill-jungle">Protocolo WhatsApp</span>
+      <span class="hero-pill pill-ocean">Largo Plazo</span>
+    </div>
+  </div>
+
+  <div class="hero-meta">
+    <div class="hero-stat">
+      <div class="hero-stat-num">4</div>
+      <div class="hero-stat-label">Audiencias objetivo</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">5</div>
+      <div class="hero-stat-label">Pilares de contenido</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">Mayo</div>
+      <div class="hero-stat-label">2026 — Festival</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">∞</div>
+      <div class="hero-stat-label">Visión largo plazo</div>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════════ NAV ════════════════ -->
+<nav class="nav" id="nav">
+  <button class="nav-btn active" onclick="show('narrativa',this)">00 · Narrativa Maestra</button>
+  <button class="nav-btn" onclick="show('audiencias',this)">01 · Audiencias</button>
+  <button class="nav-btn" onclick="show('ux',this)">02 · UX Content</button>
+  <button class="nav-btn" onclick="show('guerrilla',this)">03 · Guerrilla</button>
+  <button class="nav-btn" onclick="show('alcance',this)">04 · Alcance Australiano</button>
+  <button class="nav-btn" onclick="show('sponsors',this)">05 · Patrocinios</button>
+  <button class="nav-btn" onclick="show('visual',this)">06 · Identidad Visual</button>
+  <button class="nav-btn" onclick="show('whatsapp',this)">07 · WhatsApp</button>
+  <button class="nav-btn" onclick="show('largo',this)">08 · Largo Plazo</button>
+  <button class="nav-btn" onclick="show('timeline',this)">09 · Timeline</button>
+</nav>
+
+<!-- ════════════════════════════════════════
+  00 · NARRATIVA MAESTRA
+════════════════════════════════════════ -->
+<section class="section active" id="narrativa">
+  <div class="s-tag">La corrección estratégica central</div>
+  <h2 class="s-title">La <em>Narrativa</em><br>Maestra</h2>
+  <p class="s-intro">Antes de cualquier táctica, existe una decisión narrativa que lo cambia todo. Esta sección es la más importante del plan —si se entiende bien, todo lo demás cobra sentido.</p>
+
+  <div class="pullquote">"La comunidad latina no organiza una fiesta para sí misma. Organiza una experiencia cultural para toda Darwin. Eso cambia quién sos, a quién le hablás y qué podés pedir."</div>
+
+  <div class="rule"></div>
+
+  <span class="label">El Cambio de Marco</span>
+  <div class="contrast-grid">
+    <div class="contrast-box contrast-old">
+      <span class="c-label">❌ Marco Anterior — Hacia adentro</span>
+      <ul>
+        <li>El festival como celebración interna</li>
+        <li>Mensaje: "Vengan a nuestra fiesta"</li>
+        <li>Audiencia: la comunidad latina</li>
+        <li>Tono: orgullo propio</li>
+        <li>Resultado: evento de colectivo</li>
+        <li>Sponsors: negocios étnicos</li>
+        <li>Medios: no hay historia aquí</li>
+      </ul>
+    </div>
+    <div class="contrast-box contrast-new">
+      <span class="c-label">✓ Marco Nuevo — Hacia afuera</span>
+      <ul>
+        <li>El festival como puente cultural</li>
+        <li>Mensaje: "Darwin descubre Latinoamérica"</li>
+        <li>Audiencia: toda la ciudad</li>
+        <li>Tono: invitación y orgullo compartido</li>
+        <li>Resultado: evento multicultural de ciudad</li>
+        <li>Sponsors: empresas, gobierno, universidades</li>
+        <li>Medios: hay historia, hay impacto, hay cifras</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <span class="label">La Frase Maestra y Sus Variaciones</span>
+
+  <div class="grid grid-3">
+    <div class="card card-gold">
+      <div class="card-icon">🌎</div>
+      <h3>Concepto Paraguas</h3>
+      <p style="font-style:italic; font-size:1rem; color:var(--cream); margin-bottom:0.7rem">"Latin culture enriching Darwin."</p>
+      <p>Para todo: redes sociales, sponsors, medios, comunicación institucional. Es bilingüe por naturaleza. Habla de valor, no de fiesta.</p>
+    </div>
+    <div class="card card-fire">
+      <div class="card-icon">🎪</div>
+      <h3>Para el Festival</h3>
+      <p style="font-style:italic; font-size:0.95rem; color:var(--cream); margin-bottom:0.7rem">"Celebrating Latin culture with the Darwin community."</p>
+      <p>Enfatiza el "con". No es un evento de latinos —es un evento de Darwin organizado por latinos.</p>
+    </div>
+    <div class="card card-jungle">
+      <div class="card-icon">🏛️</div>
+      <h3>Para la Asociación</h3>
+      <p style="font-style:italic; font-size:0.95rem; color:var(--cream); margin-bottom:0.7rem">"Building bridges between Latin America and Darwin."</p>
+      <p>Posiciona la Asociación como plataforma de largo plazo: integración, cultura, emprendimiento, intercambio.</p>
+    </div>
+  </div>
+
+  <div class="alert alert-jungle">
+    <h4>🔑 El Insight Estratégico Clave</h4>
+    <p>En ciudades como Darwin, los festivales multiculturales que se posicionan como <strong>experiencias culturales abiertas</strong> —no como eventos de colectivo— acceden a fondos públicos, cobertura mediática, sponsors corporativos y alianzas institucionales que de otro modo son inaccesibles. El cambio de narrativa no es solo marketing: es la llave a los recursos que la Asociación necesita para sostenerse a largo plazo.</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+  01 · AUDIENCIAS
+════════════════════════════════════════ -->
+<section class="section" id="audiencias">
+  <div class="s-tag">Pilar 01</div>
+  <h2 class="s-title">Las 4<br><em>Audiencias</em></h2>
+  <p class="s-intro">Ya no existe "la audiencia". Existen cuatro públicos distintos que necesitan mensajes distintos —y que juntos construyen el festival y la Asociación que queremos.</p>
+
+  <div class="grid grid-2">
+    <div class="card card-fire">
+      <div class="card-icon">🌎</div>
+      <h3>Comunidad Latina de Darwin</h3>
+      <p><strong style="color:var(--cream)">Su nuevo rol: anfitriones, no público.</strong></p>
+      <p style="margin-top:0.6rem">Necesidad emocional: pertenencia, identidad, orgullo. Pero ahora el mensaje cambia: "Este festival es nuestra oportunidad de mostrarle a Darwin quiénes somos y lo que aportamos." <strong>Son la fuerza de producción Y los embajadores hacia afuera.</strong></p>
+      <div class="tags"><span class="tag t-fire">Base embajadora</span><span class="tag t-fire">Español</span><span class="tag t-fire">Orgullo + apertura</span></div>
+    </div>
+    <div class="card card-ocean">
+      <div class="card-icon">🦘</div>
+      <h3>Australianos de Darwin</h3>
+      <p><strong style="color:var(--cream)">La audiencia de crecimiento más importante.</strong></p>
+      <p style="margin-top:0.6rem">Necesidad: experiencias culturales nuevas, entretenimiento familiar, descubrimiento. No saben qué es un carnaval latinoamericano —y eso es exactamente la oportunidad. Se les habla en inglés con mensajes de <em>discovery</em> y accesibilidad.</p>
+      <div class="tags"><span class="tag t-ocean">Inglés</span><span class="tag t-ocean">Discovery</span><span class="tag t-ocean">Familia</span></div>
+    </div>
+    <div class="card card-jungle">
+      <div class="card-icon">🌏</div>
+      <h3>Otras Comunidades Migrantes</h3>
+      <p><strong style="color:var(--cream)">Aliados naturales con experiencia compartida.</strong></p>
+      <p style="margin-top:0.6rem">Filipinos, indonesios, griegos, indios: saben lo que es mantener cultura viva lejos de casa. El puente emocional: solidaridad migrante. La invitación: "Un espacio donde todas las culturas de Darwin se encuentran."</p>
+      <div class="tags"><span class="tag t-jungle">Inglés / bilingüe</span><span class="tag t-jungle">Solidaridad</span><span class="tag t-jungle">Alianzas</span></div>
+    </div>
+    <div class="card card-gold">
+      <div class="card-icon">🏛️</div>
+      <h3>Instituciones, Sponsors y Medios</h3>
+      <p><strong style="color:var(--cream)">La audiencia que financia el largo plazo.</strong></p>
+      <p style="margin-top:0.6rem">Gobierno NT, CDU, empresas con agenda D&I, medios locales. Buscan exactamente lo que la Asociación ofrece: diversidad cultural auténtica, impacto comunitario medible, historias de integración. Se les habla en inglés formal con datos.</p>
+      <div class="tags"><span class="tag t-gold">Inglés formal</span><span class="tag t-gold">Datos de impacto</span><span class="tag t-gold">Long-term</span></div>
+    </div>
+  </div>
+
+  <div class="alert alert-gold">
+    <h4>⚡ Regla de Oro: Un Mensaje Base, Cuatro Voces</h4>
+    <p>El núcleo narrativo es siempre <em>"Latin culture enriching Darwin"</em> — pero cada audiencia recibe su propia entrada. Los latinos son anfitriones orgullosos. Los australianos son explorados bienvenidos. Las otras comunidades son aliados solidarios. Las instituciones son socias estratégicas. <strong>Mismo festival. Cuatro invitaciones distintas.</strong></p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+  02 · UX CONTENT — 5 PILARES
+════════════════════════════════════════ -->
+<section class="section" id="ux">
+  <div class="s-tag">Pilar 02</div>
+  <h2 class="s-title">UX Content:<br><em>5 Pilares</em></h2>
+  <p class="s-intro">El contenido no es publicidad. Es una ventana que le abre Darwin a Latinoamérica. Cada pilar tiene su propia audiencia principal, su tono y su función en el ecosistema del festival y la Asociación.</p>
+
+  <div class="alert alert-fire">
+    <h4>📐 La Regla Maestra de Contenido</h4>
+    <p><strong>80% valor cultural</strong> (educación, historias, descubrimiento, impacto) / <strong>20% promoción del festival</strong>. Esta proporción es la que genera interés genuino fuera de la comunidad latina. El contenido que solo habla del evento solo llega a quien ya iba a venir.</p>
+  </div>
+
+  <div style="margin-top: 2.5rem;">
+
+    <div class="pillar">
+      <div class="pillar-num">01</div>
+      <div>
+        <h4>🌍 Cultura — "Did you know?"</h4>
+        <p>Mostrar la riqueza latinoamericana de forma accesible: bailes, instrumentos, carnaval, historia, geografía. Formato ideal: Reels cortos 15–30 seg, carruseles, "fact drops".</p>
+        <p class="copy-ex">"Did you know salsa was born in the Caribbean?" / "What is Carnival in Latin America? A 60-second guide." / "Bolivia has 36 official languages. Here's why."</p>
+        <div class="tags"><span class="tag t-ocean">Australianos</span><span class="tag t-jungle">Todas las comunidades</span><span class="tag t-ocean">Inglés</span></div>
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <div>
+        <h4>🍽️ Gastronomía — "Have you tried?"</h4>
+        <p>La comida es la puerta de entrada más universal. No requiere contexto cultural previo. Atrae masivamente al público australiano. Mostrar platos, chefs latinos, food stalls del festival.</p>
+        <p class="copy-ex">"Have you ever tried empanadas? Darwin's Latin community is bringing 8 countries of street food to one place." / "3 Latin dishes you need to try before you die."</p>
+        <div class="tags"><span class="tag t-ocean">Alta atracción australiana</span><span class="tag t-fire">Carnaval gastronomía</span></div>
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-num">03</div>
+      <div>
+        <h4>🤝 Comunidad — "Meet the people"</h4>
+        <p>Historias humanas de latinos que viven, trabajan, construyen y aportan en Darwin. El argumento más poderoso de la Asociación para instituciones y medios. Médicos, chefs, maestros, artistas, emprendedores.</p>
+        <p class="copy-ex">"Meet [nombre], from Colombia, now making Darwin's medical system stronger." / "Latinos making Darwin richer: the entrepreneurs building bridges between two continents."</p>
+        <div class="tags"><span class="tag t-gold">Instituciones</span><span class="tag t-ocean">Medios</span><span class="tag t-jungle">Largo plazo Asociación</span></div>
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-num">04</div>
+      <div>
+        <h4>🎓 Educación Cultural — "Explained"</h4>
+        <p>Micro-contenidos que explican el significado del carnaval, las tradiciones, los países latinoamericanos. Bajan la barrera de entrada para no-latinos y los preparan para el festival.</p>
+        <p class="copy-ex">"What is Carnival? (Not just Mardi Gras)" / "Latin America: 33 countries, one spirit." / "Why do Latinos celebrate Day of the Dead? A 45-second explainer."</p>
+        <div class="tags"><span class="tag t-ocean">Australianos curiosos</span><span class="tag t-gold">Posicionamiento cultural</span></div>
+      </div>
+    </div>
+
+    <div class="pillar">
+      <div class="pillar-num">05</div>
+      <div>
+        <h4>🎉 Experiencia Festival — "Get ready"</h4>
+        <p>Mostrar el ambiente, la energía, la música, el baile, las actividades, lo familiar. Solo 20% del contenido total. Pero incluye activamente al público australiano: testimonios del 1er festival, cara de sorpresa de quien descubrió algo nuevo.</p>
+        <p class="copy-ex">"3 things you will discover at the Latin Festival." / "What happened when Darwin met Latin America for the first time." / "Get ready. May 2026."</p>
+        <div class="tags"><span class="tag t-fire">Conversión festival</span><span class="tag t-ocean">FOMO</span><span class="tag t-jungle">Bilingüe</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="alert alert-ocean">
+    <h4>🗝️ El Contenido que Más Abre Puertas con Australianos</h4>
+    <ul>
+      <li><strong>El "testigo australiano":</strong> una persona no-latina del 1er festival contando qué descubrió. Vale más que 10 posts de la Asociación.</li>
+      <li><strong>Side-by-side Darwin / Latinoamérica:</strong> "Darwin y Cartagena: más parecidas de lo que creés" — clima tropical, diversidad, historia portuaria.</li>
+      <li><strong>Food first, culture after:</strong> empezar siempre por la gastronomía. La comida no necesita traducción cultural.</li>
+      <li><strong>Preguntas abiertas universales:</strong> "¿Cuál es la mejor comida que probaste de otra cultura?" — los comentarios australianos son el algoritmo.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+  03 · GUERRILLA VOLUNTARIOS
+════════════════════════════════════════ -->
+<section class="section" id="guerrilla">
+  <div class="s-tag">Pilar 03</div>
+  <h2 class="s-title">Guerrilla<br><em>Voluntarios</em></h2>
+  <p class="s-intro">Un sistema que un voluntario sin experiencia pueda operar en menos de 20 minutos por semana —y que juntos construyan un alcance que ningún presupuesto de pauta podría comprar.</p>
+
+  <span class="label">4 Roles — Cada uno con una tarea clara</span>
+  <div class="grid grid-2">
+    <div class="card">
+      <div class="card-icon">📱</div>
+      <h3>El/La Creador/a</h3>
+      <p>Genera 1 post por semana usando una plantilla Canva ya lista. Elige el tema del pilar asignado esa semana. Puede ser foto de teléfono + texto. No necesita editar nada.</p>
+      <div class="tags"><span class="tag t-gold">1 post / semana</span></div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔁</div>
+      <h3>El/La Amplificador/a</h3>
+      <p>Comparte cada post en su story. Etiqueta a 2 personas. Si tiene amigos australianos o de otras comunidades, su amplificación vale doble —y se le pide específicamente que llegue a ellos.</p>
+      <div class="tags"><span class="tag t-gold">5 min / día</span></div>
+    </div>
+    <div class="card">
+      <div class="card-icon">💬</div>
+      <h3>El/La Conector/a</h3>
+      <p>Un embajador en cada colectivo latino (colombianos, peruanos, venezolanos...). Comparte 1 mensaje por semana en su grupo nacional. También activa a los líderes de otras comunidades migrantes.</p>
+      <div class="tags"><span class="tag t-gold">2 contactos / semana</span></div>
+    </div>
+    <div class="card card-ocean">
+      <div class="card-icon">🌉</div>
+      <h3>El/La Embajador/a Externo/a</h3>
+      <p><strong style="color:var(--cream)">El rol nuevo más importante.</strong> Un latino/a con red amplia de contactos australianos. Recibe mensualmente un kit en inglés (mensaje + imagen) listo para copiar y pegar en sus grupos y chats no-latinos.</p>
+      <div class="tags"><span class="tag t-ocean">Nuevo rol</span><span class="tag t-ocean">Alcance australiano</span></div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <span class="label">El Flujo Semanal — 3 días, sin saturar</span>
+  <div class="flow">
+    <div class="flow-item">
+      <div class="flow-dot dot-gold">L</div>
+      <div class="flow-body">
+        <h4>Lunes — Cultura o Gastronomía (bilingüe)</h4>
+        <p>Pilar 1 o 2. Contenido que cualquier persona de Darwin puede disfrutar sin contexto. En inglés o español con subtítulos en inglés. Los Embajadores Externos lo comparten hacia afuera el mismo día.</p>
+        <div class="tags"><span class="tag t-ocean">Instagram EN/ES</span><span class="tag t-gold">Facebook</span></div>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-dot dot-jungle">J</div>
+      <div class="flow-body">
+        <h4>Jueves — Comunidad o Educación Cultural</h4>
+        <p>Pilar 3 o 4. Una historia de un latino en Darwin, o un micro-contenido educativo sobre Latinoamérica. En inglés. Ideal para alcanzar australianos e instituciones. Compartir también en Facebook.</p>
+        <div class="tags"><span class="tag t-jungle">Inglés</span><span class="tag t-gold">Advocacy</span><span class="tag t-ocean">Medios / instituciones</span></div>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-dot dot-fire">S</div>
+      <div class="flow-body">
+        <h4>Sábado — Engagement Universal</h4>
+        <p>Pilar 5 o pregunta abierta. Contenido que cualquiera puede responder: "¿Cuál es tu comida favorita de otra cultura?" / "¿Fuiste alguna vez a un carnaval?" Los comentarios de personas no-latinas alimentan el algoritmo y son la prueba social más poderosa.</p>
+        <div class="tags"><span class="tag t-fire">Bilingüe</span><span class="tag t-jungle">Alto engagement</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-gold">
+    <h4>📦 El Kit Semanal del Voluntario — Lo que recibe cada semana</h4>
+    <ul>
+      <li>1 plantilla Canva lista (solo cambiar foto y texto mínimo)</li>
+      <li>1 copy sugerido en español Y en inglés (3 líneas máximo)</li>
+      <li>1 hashtag central: <strong>#LatinDarwin</strong> o <strong>#FestivalLatinoDarwin</strong> + 3 tags adicionales</li>
+      <li>1 mensaje de WhatsApp listo para copiar y pegar — versión ES y versión EN</li>
+    </ul>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Semana</th><th>Pilar</th><th>Tema</th><th>Idioma</th><th>Audiencia Principal</th></tr>
+      <tr><td>1–3</td><td>Cultura</td><td>"Did you know?" — datos sorprendentes de Latinoamérica</td><td>EN / Bilingüe</td><td>Australianos</td></tr>
+      <tr><td>4–6</td><td>Comunidad</td><td>Latinos que aportan a Darwin (historias reales)</td><td>EN</td><td>Instituciones + medios</td></tr>
+      <tr><td>7–9</td><td>Gastronomía</td><td>La comida del festival — platos, chefs, stalls</td><td>EN / Bilingüe</td><td>Todos</td></tr>
+      <tr><td>10–12</td><td>Educación</td><td>Qué es el carnaval latinoamericano — guía accesible</td><td>EN</td><td>Australianos + otras comunidades</td></tr>
+      <tr><td>13–16</td><td>Experiencia</td><td>Testimonios 1er festival + cuenta regresiva</td><td>Bilingüe</td><td>Todas las audiencias</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+  04 · ALCANCE AUSTRALIANO
+════════════════════════════════════════ -->
+<section class="section" id="alcance">
+  <div class="s-tag">Pilar 04</div>
+  <h2 class="s-title">Alcance<br><em>Australiano</em></h2>
+  <p class="s-intro">Muchos eventos de comunidades migrantes no logran atraer público local porque no explican la experiencia. La barrera no es de interés —es de información. Este pilar la elimina.</p>
+
+  <div class="pullquote">"Un australiano no viene al festival porque 'le gusta lo latino'. Viene porque alguien le explicó qué va a sentir, qué va a comer y por qué vale su domingo."</div>
+
+  <span class="label">Tácticas Específicas para Audiencia Australiana</span>
+
+  <div class="flow">
+    <div class="flow-item">
+      <div class="flow-dot dot-ocean">1</div>
+      <div class="flow-body">
+        <h4>El Reel de "3 Things You Will Discover"</h4>
+        <p>Format probado para audiencias que no conocen el evento. 15–30 segundos, ritmo rápido, subtítulos. Ejemplo: "1️⃣ Latin street food from 8 countries. 2️⃣ Carnival dances you've never seen live. 3️⃣ Live music that will move you even if you don't speak Spanish." Este formato es el más compartible hacia afuera de la comunidad latina.</p>
+        <div class="tags"><span class="tag t-ocean">Reel profesional</span><span class="tag t-ocean">Inglés</span><span class="tag t-jungle">Muy compartible</span></div>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-dot dot-ocean">2</div>
+      <div class="flow-body">
+        <h4>El "Testigo Australiano" — Prueba Social Máxima</h4>
+        <p>Buscar activamente personas no-latinas que fueron al 1er Festival. Pedirles un video de 30 segundos o 3 líneas de texto. "No sabía qué esperar. Fue lo mejor que hice en Darwin ese año." <strong>Un australiano hablando a australianos supera cualquier marketing latino en efectividad.</strong> Es la pieza de contenido más valiosa que existe para este objetivo.</p>
+        <div class="tags"><span class="tag t-ocean">UGC australiano</span><span class="tag t-fire">Máxima prioridad</span></div>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-dot dot-ocean">3</div>
+      <div class="flow-body">
+        <h4>Alcance a Grupos y Comunidades de Darwin</h4>
+        <p>Identificar grupos de Facebook, foros y comunidades locales de Darwin: grupos de familias, deportes, vecinos, padres, eventos NT. Los Embajadores Externos comparten el festival ahí con el mensaje en inglés listo. No es spam porque el mensaje es de valor: una experiencia cultural gratuita/accesible para la familia.</p>
+        <div class="tags"><span class="tag t-ocean">Grupos FB Darwin</span><span class="tag t-jungle">Embajadores externos</span></div>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-dot dot-ocean">4</div>
+      <div class="flow-body">
+        <h4>Alianza con Otras Comunidades Migrantes</h4>
+        <p>Darwin es extremadamente multicultural. Contactar líderes de comunidades filipina, griega, india, africana, indonesia. Mensaje: <em>"We're building a multicultural celebration for all of Darwin — and we'd love your community to be part of it."</em> Su amplificación llega a redes que ningún contenido propio puede tocar.</p>
+        <div class="tags"><span class="tag t-jungle">Multicultural Darwin</span><span class="tag t-gold">Alianzas estratégicas</span></div>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-dot dot-ocean">5</div>
+      <div class="flow-body">
+        <h4>Outreach a Medios Locales — La Historia es Real</h4>
+        <p>NT News, ABC Darwin, Darwin radio. No se les pide pauta. Se les ofrece una historia genuina con ángulo periodístico: "La comunidad latinoamericana que lleva X años construyendo Darwin organiza su 2do festival multicultural." Con datos de asistentes, países representados, emprendedores. <strong>Los medios locales de ciudades chicas aman estas historias.</strong> Es PR gratuita con alcance masivo.</p>
+        <div class="tags"><span class="tag t-ocean">PR gratuita</span><span class="tag t-gold">Alcance masivo</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-ocean">
+    <h4>📝 Nota de Pitch para Medios (plantilla)</h4>
+    <p>Asunto: <em>"Darwin's Latin community builds a cultural bridge — 2nd Latin Festival, May 2026"</em></p>
+    <p style="margin-top:0.6rem">Cuerpo: "The Latin American Association of Darwin brings together over [X] families from [N] countries for their 2nd annual Latin Festival. Beyond entertainment, this event represents [X] years of cultural contribution to Darwin's multicultural identity — from healthcare workers to entrepreneurs and educators. We'd love to share this story with you."</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+  05 · PATROCINIOS
+════════════════════════════════════════ -->
+<section class="section" id="sponsors">
+  <div class="s-tag">Pilar 05</div>
+  <h2 class="s-title">Plan de<br><em>Patrocinios</em></h2>
+  <p class="s-intro">Con la narrativa de valor cultural, el festival accede a una categoría de sponsors completamente nueva. Ya no se vende publicidad para una fiesta —se vende asociación con el multiculturalismo de Darwin.</p>
+
+  <div class="pullquote">"No le vendas a un sponsor un logo en un flyer. Vendele ser parte de la historia que Darwin contará sobre cómo su comunidad latina la enriqueció."</div>
+
+  <span class="label">Paquetes de Patrocinio</span>
+  <div class="grid grid-2">
+    <div class="card">
+      <div class="card-icon">🥉</div>
+      <h3>Bronce — $300–500 · Amigo Cultural</h3>
+      <ul>
+        <li>Mención en 2 Stories + 1 post</li>
+        <li>Logo en todas las plantillas digitales</li>
+        <li>Mención en canal WhatsApp oficial</li>
+        <li>Agradecimiento en el evento</li>
+      </ul>
+      <div class="tags"><span class="tag t-gold">Bajo compromiso</span></div>
+    </div>
+    <div class="card card-fire">
+      <div class="card-icon">🥈</div>
+      <h3>Plata — $800–1200 · Sponsor de Reel</h3>
+      <ul>
+        <li>Integración orgánica en 1 Reel profesional</li>
+        <li>Logo + mención en caption + etiqueta</li>
+        <li>3 días en Stories dedicadas</li>
+        <li>Todo lo de Bronce incluido</li>
+      </ul>
+      <div class="tags"><span class="tag t-fire">Contenido de valor</span></div>
+    </div>
+    <div class="card card-gold">
+      <div class="card-icon">🥇</div>
+      <h3>Oro — $2000+ · Socio Cultural Principal</h3>
+      <ul>
+        <li>Integración en 2–3 Reels profesionales</li>
+        <li>Naming de una zona del festival</li>
+        <li>Post propio dedicado (no mención)</li>
+        <li>Presencia física en el evento</li>
+        <li>Logo en TODA la comunicación digital</li>
+      </ul>
+      <div class="tags"><span class="tag t-gold">Premium</span></div>
+    </div>
+    <div class="card card-ocean">
+      <div class="card-icon">🏛️</div>
+      <h3>Institucional · In-Kind</h3>
+      <ul>
+        <li>Apoyo logístico, espacio o permisos</li>
+        <li>Amplificación desde canales oficiales NT</li>
+        <li>Carta de apoyo (clave para futuros grants)</li>
+        <li>Reconocimiento como "Socio Cultural Oficial"</li>
+      </ul>
+      <div class="tags"><span class="tag t-ocean">Sin costo directo</span><span class="tag t-ocean">Alto valor estratégico</span></div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <span class="label">Nuevos Targets — Más Allá de los Negocios Latinos</span>
+  <div class="flow">
+    <div class="flow-item">
+      <div class="flow-dot dot-gold">1</div>
+      <div class="flow-body">
+        <h4>NT Government — Multicultural Affairs</h4>
+        <p>El gobierno del NT tiene programas de cohesión multicultural y fondos para eventos comunitarios. Pitch: <em>"El 2do Festival Latino es el evento multicultural más significativo del NT y necesitamos su apoyo para que toda Darwin pueda acceder."</em> Buscar específicamente los programas "Multicultural Affairs" y "Community Events Grants".</p>
+        <div class="tags"><span class="tag t-gold">Grants disponibles</span><span class="tag t-ocean">Apoyo in-kind</span></div>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-dot dot-ocean">2</div>
+      <div class="flow-body">
+        <h4>Charles Darwin University (CDU)</h4>
+        <p>Campus multicultural, agenda de diversidad, miles de estudiantes. Tres propuestas posibles: (a) Design challenge para la identidad visual del festival —los estudiantes diseñan, la Asociación les da crédito y visibilidad. (b) Voluntariado estudiantil acreditado. (c) Patrocinio formal a cambio de stand de reclutamiento en el festival.</p>
+        <div class="tags"><span class="tag t-ocean">Diseño gratuito</span><span class="tag t-jungle">Voluntariado</span><span class="tag t-gold">Sponsor</span></div>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-dot dot-fire">3</div>
+      <div class="flow-body">
+        <h4>Empresas con Agenda D&I</h4>
+        <p>Mineras, constructoras, hospitales, grandes empleadores del NT tienen obligaciones de Diversity & Inclusion. Patrocinar un festival multicultural auténtico cumple esas metas y les da visibilidad positiva. Pitch en inglés, con datos de impacto: número de países representados, asistentes, alcance digital.</p>
+        <div class="tags"><span class="tag t-fire">Sponsor Oro potencial</span><span class="tag t-gold">Datos D&I</span></div>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-dot dot-jungle">4</div>
+      <div class="flow-body">
+        <h4>Embajadas Latinoamericanas en Australia</h4>
+        <p>México, Colombia, Perú, Brasil, Argentina tienen embajadas en Canberra con programas de promoción cultural. No pagan cash directamente, pero pueden enviar materiales, amplificar en sus canales oficiales y otorgar legitimidad diplomática. Esa legitimidad abre puertas con el gobierno NT.</p>
+        <div class="tags"><span class="tag t-jungle">Legitimidad institucional</span><span class="tag t-jungle">Recursos in-kind</span></div>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-dot dot-fire">5</div>
+      <div class="flow-body">
+        <h4>Hack: El Sponsor Gastronómico</h4>
+        <p>Proponer a un restaurante latino que <strong>ellos financien los Reels profesionales</strong> a cambio de ser "Sponsor Gastronómico Oficial" del festival. Aparecen en el Reel, en el evento y en toda la comunicación. No pagan publicidad —pagan producción de contenido. Esa es una conversación mucho más fácil de tener.</p>
+        <div class="tags"><span class="tag t-fire">Primer sí rápido</span><span class="tag t-gold">Financia producción</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+  06 · IDENTIDAD VISUAL
+════════════════════════════════════════ -->
+<section class="section" id="visual">
+  <div class="s-tag">Pilar 06</div>
+  <h2 class="s-title">Identidad<br><em>Visual</em></h2>
+  <p class="s-intro">La identidad debe comunicar simultáneamente: raíz latinoamericana auténtica + apertura universal + Darwin como territorio. Sin presupuesto para diseño senior, la solución es un sistema que cualquiera puede operar.</p>
+
+  <div class="alert alert-gold">
+    <h4>🎨 El Principio Visual Actualizado</h4>
+    <p>El carnaval tiene colores, movimiento y calor —eso no cambia. Pero la identidad debe sentirse <strong>contemporánea y acogedora</strong>, no solo folclórica. Referencia: los festivales multiculturales de Melbourne o Sídney que atraen a toda la ciudad. Latinoamericano en el alma. Universal en la forma.</p>
+  </div>
+
+  <span class="label">Paleta de 5 Colores — Nunca Salirse</span>
+  <div class="card" style="margin-bottom:2rem">
+    <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center">
+      <div style="text-align:center"><div style="width:64px;height:64px;border-radius:50%;background:#E8401C;margin:0 auto 0.5rem;box-shadow:0 4px 20px rgba(232,64,28,0.4)"></div><div style="font-family:'Syne',sans-serif;font-size:0.6rem;opacity:0.5;letter-spacing:0.1em">#E8401C<br>Rojo Carnaval</div></div>
+      <div style="text-align:center"><div style="width:64px;height:64px;border-radius:50%;background:#F2A93B;margin:0 auto 0.5rem;box-shadow:0 4px 20px rgba(242,169,59,0.3)"></div><div style="font-family:'Syne',sans-serif;font-size:0.6rem;opacity:0.5;letter-spacing:0.1em">#F2A93B<br>Oro Festival</div></div>
+      <div style="text-align:center"><div style="width:64px;height:64px;border-radius:50%;background:#1E6B45;margin:0 auto 0.5rem;box-shadow:0 4px 20px rgba(30,107,69,0.3)"></div><div style="font-family:'Syne',sans-serif;font-size:0.6rem;opacity:0.5;letter-spacing:0.1em">#1E6B45<br>Verde Selva</div></div>
+      <div style="text-align:center"><div style="width:64px;height:64px;border-radius:50%;background:#1A4A72;margin:0 auto 0.5rem;box-shadow:0 4px 20px rgba(26,74,114,0.25)"></div><div style="font-family:'Syne',sans-serif;font-size:0.6rem;opacity:0.5;letter-spacing:0.1em">#1A4A72<br>Azul Darwin</div></div>
+      <div style="text-align:center"><div style="width:64px;height:64px;border-radius:50%;background:#F9F3E8;border:1px solid #333;margin:0 auto 0.5rem"></div><div style="font-family:'Syne',sans-serif;font-size:0.6rem;opacity:0.5;letter-spacing:0.1em">#F9F3E8<br>Crema Base</div></div>
+    </div>
+    <p style="font-family:'Lora',serif;font-size:0.83rem;color:rgba(249,243,232,0.45);margin-top:1.2rem">El <strong style="color:rgba(249,243,232,0.7)">Azul Darwin</strong> es el color nuevo: referencia al mar de Arafura y al cielo del NT. Ancla el festival a su territorio. Usar en comunicación institucional y materiales dirigidos a australianos. Hace que la identidad no sea "solo latina" sino de Darwin.</p>
+  </div>
+
+  <span class="label">Stack de Herramientas Gratuitas</span>
+
+  <div class="tool-card" style="display:flex;gap:1rem;align-items:flex-start;background:var(--ash);border-radius:8px;padding:1.2rem 1.4rem;margin-bottom:0.9rem;border:1px solid rgba(255,255,255,0.05)">
+    <div style="font-size:1.7rem;flex-shrink:0">🎨</div>
+    <div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.88rem;color:var(--sun);margin-bottom:0.3rem">Canva Free — 2 kits de plantillas</div>
+      <p style="font-family:'Lora',serif;font-size:0.83rem;line-height:1.65;color:rgba(249,243,232,0.58)">Kit A (ES): Cálido, festivo, español. Kit B (EN): Misma identidad, textos en inglés, composición más contenida. 5–6 plantillas maestras: Story, Post cuadrado, Story con texto, Flyer A4, Banner. Una vez creadas, los voluntarios solo cambian el texto y la foto.</p>
+    </div>
+  </div>
+
+  <div class="tool-card" style="display:flex;gap:1rem;align-items:flex-start;background:var(--ash);border-radius:8px;padding:1.2rem 1.4rem;margin-bottom:0.9rem;border:1px solid rgba(255,255,255,0.05)">
+    <div style="font-size:1.7rem;flex-shrink:0">🎬</div>
+    <div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.88rem;color:var(--sun);margin-bottom:0.3rem">CapCut Free — Videos entre Reels profesionales</div>
+      <p style="font-family:'Lora',serif;font-size:0.83rem;line-height:1.65;color:rgba(249,243,232,0.58)">Los voluntarios filman vertical, suben a CapCut, aplican una plantilla con la paleta de colores del festival, exportan. Sin edición. Ideal para contenido "detrás de escena" y testimonios rápidos.</p>
+    </div>
+  </div>
+
+  <div class="tool-card" style="display:flex;gap:1rem;align-items:flex-start;background:var(--ash);border-radius:8px;padding:1.2rem 1.4rem;margin-bottom:0.9rem;border:1px solid rgba(255,255,255,0.05)">
+    <div style="font-size:1.7rem;flex-shrink:0">🤖</div>
+    <div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:0.88rem;color:var(--sun);margin-bottom:0.3rem">Adobe Firefly / Bing Image Creator — Imágenes IA</div>
+      <p style="font-family:'Lora',serif;font-size:0.83rem;line-height:1.65;color:rgba(249,243,232,0.58)">Para fondos e ilustraciones. Prompt recomendado: <em style="color:rgba(249,243,232,0.8)">"vibrant multicultural festival illustration, tropical Darwin NT atmosphere, diverse crowd, Latin American carnival patterns, warm colour palette, no text"</em>. Las imágenes deben mostrar diversidad étnica para comunicar apertura real.</p>
+    </div>
+  </div>
+
+  <div class="alert alert-jungle">
+    <h4>🏆 El Hack de Diseño Senior: CDU Design Challenge</h4>
+    <p>Proponer a la facultad de diseño de la CDU (o a una escuela local) un <strong>proyecto real de portfolio</strong>: los estudiantes diseñan la identidad visual del 2do Festival Latino Darwin. La Asociación les da crédito público, visibilidad en el evento y una carta de reconocimiento. Resultado: identidad profesional a costo cero + relación institucional con la universidad + caso real de diseño para los estudiantes. Todos ganan.</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+  07 · WHATSAPP
+════════════════════════════════════════ -->
+<section class="section" id="whatsapp">
+  <div class="s-tag">Pilar 07</div>
+  <h2 class="s-title">Protocolo<br><em>WhatsApp</em></h2>
+  <p class="s-intro">WhatsApp es el canal más íntimo de la cultura latina. Tratarlo mal destruye confianza. Tratarlo bien convierte a cada miembro de la comunidad en un embajador que lleva el festival más lejos que cualquier algoritmo.</p>
+
+  <div class="pullquote">"No es broadcasting. Es activar a una red de personas que creen en lo mismo —y darles las palabras para contárselo a los demás."</div>
+
+  <span class="label">Arquitectura de Canales</span>
+  <div class="grid grid-2" style="margin-bottom:2rem">
+    <div class="card">
+      <div class="card-icon">⚙️</div>
+      <h3>Grupo Interno</h3>
+      <p>"Equipo Festival Latino 2026". Solo voluntarios y coordinadores. Materiales, plantillas, briefings semanales. Regla absoluta: sin off-topic. Es el cuartel general.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📣</div>
+      <h3>Canal Oficial (no grupo)</h3>
+      <p>"Festival Latino Darwin — Noticias". Canal de WhatsApp (solo admins escriben). Bilingüe. Máximo 2 mensajes por semana. La gente elige suscribirse = no es spam por definición.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌐</div>
+      <h3>Grupos Comunitarios Latinos</h3>
+      <p>1 Conector en cada colectivo nacional. Comparte cuando tiene valor real. Ahora con kit bilingüe: un mensaje EN listo para que los miembros del grupo lo reenvíen a sus contactos australianos.</p>
+    </div>
+    <div class="card card-ocean">
+      <div class="card-icon">🌉</div>
+      <h3>Red de Embajadores Externos</h3>
+      <p>Grupo privado de los Embajadores Externos. Reciben mensualmente: 1 mensaje EN, 1 imagen, 1 dato curioso. Instrucción: "Envialo a 1 grupo no-latino que tengas."</p>
+      <div class="tags"><span class="tag t-ocean">Nuevo</span></div>
+    </div>
+  </div>
+
+  <span class="label">Mensajes Tipo — Las 3 Reglas de Oro</span>
+  <div class="alert alert-fire" style="margin-bottom:2rem">
+    <h4>Las 3 Reglas Inquebrantables</h4>
+    <ul>
+      <li><strong>Máximo 2 mensajes por semana</strong> en cualquier canal. Más = silencio o salida.</li>
+      <li><strong>Valor antes del CTA.</strong> Nunca empezar con "Inscribite" o "Comprá". Siempre: historia/dato primero, link después.</li>
+      <li><strong>Personalización por grupo.</strong> Al grupo colombiano: hay zona colombiana. Al grupo de Darwin en general: experiencia cultural abierta. El mensaje genérico se ignora. El específico se comparte.</li>
+    </ul>
+  </div>
+
+  <div class="wa-shell">
+    <div class="wa-top">
+      <div class="wa-av">🎉</div>
+      <div><strong>Festival Latino Darwin</strong><span>Canal Oficial · Bilingüe</span></div>
+    </div>
+
+    <div class="wa-lbl">Para australianos — via Embajadores Externos (inglés)</div>
+    <div class="bubble bubble-aus">
+      🌎 <strong>Darwin's Latin community is hosting its 2nd Latin Festival — May 2026.</strong><br><br>
+      Last year people from 12+ Latin American countries brought their music, food and culture to Darwin. This year it's going to be even bigger.<br><br>
+      Free entry. All welcome. Bring the family.<br><br>
+      👉 bit.ly/LatinFestDA26
+      <time>10:30 am ✓✓</time>
+    </div>
+
+    <div class="wa-lbl" style="margin-top:1rem">Para la comunidad latina — rol de anfitrión</div>
+    <div class="bubble bubble-lat">
+      🎊 <strong>Este año somos anfitriones de Darwin, no solo de nosotros.</strong><br><br>
+      El 2do Festival Latino es nuestra oportunidad de mostrarle a toda la ciudad quiénes somos y lo que aportamos. Invitá a tus amigos australianos, a tus vecinos, a tus compañeros de trabajo.<br><br>
+      Esta semana te mandamos un mensaje en inglés listo para copiar y pegar. Sin esfuerzo. Máximo impacto. 🙌
+      <time>9:00 am ✓✓</time>
+    </div>
+
+    <div class="wa-lbl" style="margin-top:1rem">Para otras comunidades migrantes</div>
+    <div class="bubble bubble-multi">
+      🌏 <strong>Hi friends!</strong> The Latin American Association of Darwin is organising the 2nd Latin Festival — and we'd love your community to be part of it.<br><br>
+      We know what it feels like to keep your culture alive far from home. Let's celebrate together — and share yours too.<br><br>
+      DM us if your community wants a presence at the festival. 🙏
+      <time>11:00 am ✓✓</time>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+  08 · LARGO PLAZO — LA ASOCIACIÓN
+════════════════════════════════════════ -->
+<section class="section" id="largo">
+  <div class="s-tag">Pilar 08</div>
+  <h2 class="s-title">Más Allá<br><em>del Festival</em></h2>
+  <p class="s-intro">El festival es la puerta. La Asociación es la casa. Cada decisión de comunicación del festival debe construir también a la Asociación —sus miembros, su credibilidad institucional y su sustentabilidad.</p>
+
+  <div class="alert alert-jungle">
+    <h4>🌱 El Ciclo Virtuoso</h4>
+    <p>Festival → genera visibilidad → atrae nuevos miembros → fortalece la Asociación → consigue más sponsors y fondos → produce un mejor festival. Romper este ciclo en cualquier punto detiene el crecimiento. <strong>El plan de comunicación digital tiene que alimentar el ciclo en cada paso, no solo durante los meses del festival.</strong></p>
+  </div>
+
+  <span class="label">Estrategia Digital Post-Festival</span>
+  <div class="flow">
+    <div class="flow-item">
+      <div class="flow-dot dot-jungle">A</div>
+      <div class="flow-body">
+        <h4>Captura de Comunidad — No Solo Asistentes</h4>
+        <p>En el festival y en toda la comunicación previa: recolectar emails con Google Forms. No solo "inscripción al festival" sino "Sumate a la comunidad latinoamericana de Darwin." Esa base de datos es el activo más valioso de la Asociación para el largo plazo.</p>
+        <div class="tags"><span class="tag t-jungle">Google Forms</span><span class="tag t-jungle">Membresía</span></div>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-dot dot-jungle">B</div>
+      <div class="flow-body">
+        <h4>El Festival Como Argumento Institucional</h4>
+        <p>Inmediatamente después del festival: producir un informe de impacto. Asistentes totales, países representados, % de no-latinos, alcance digital, sponsors, cobertura mediática. Este informe se presenta al NT Government, a futuros sponsors y a embajadas. <strong>El festival de este año financia el siguiente.</strong></p>
+        <div class="tags"><span class="tag t-jungle">Informe de impacto</span><span class="tag t-gold">Grants futuros</span></div>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-dot dot-jungle">C</div>
+      <div class="flow-body">
+        <h4>Calendario de Valor Todo el Año</h4>
+        <p>La Asociación no desaparece entre festivales. Comunicar actividades de valor: clases de baile, noches de gastronomía, eventos culturales, networking. Cada actividad mantiene viva la comunidad y construye la narrativa de "más que un festival".</p>
+        <div class="tags"><span class="tag t-jungle">Fidelización</span><span class="tag t-jungle">Membresía activa</span></div>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="flow-dot dot-jungle">D</div>
+      <div class="flow-body">
+        <h4>Posicionamiento Institucional Permanente</h4>
+        <p>La Asociación es una plataforma de integración cultural, no una organizadora de fiestas. Eso hay que decirlo en cada canal: website, redes, comunicados. Implica también tener una propuesta de valor clara para el gobierno NT: <em>"Somos el puente más efectivo entre la comunidad latinoamericana y el resto de Darwin."</em></p>
+        <div class="tags"><span class="tag t-jungle">Advocacy</span><span class="tag t-ocean">Gobierno NT</span><span class="tag t-gold">Largo plazo</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>KPI</th><th>Festival 2026</th><th>Asociación (12 meses)</th></tr>
+      <tr><td>Asistentes</td><td>+50% vs Festival 1</td><td>—</td></tr>
+      <tr><td>% asistentes no-latinos</td><td>Meta: 30%+</td><td>Tendencia creciente año a año</td></tr>
+      <tr><td>Cobertura mediática</td><td>1+ medio local</td><td>2+ menciones trimestrales</td></tr>
+      <tr><td>Sponsors cerrados</td><td>1 Oro + 2 Plata mínimo</td><td>Renovación del 80%</td></tr>
+      <tr><td>Emails / miembros capturados</td><td>300+ en el festival</td><td>Base de datos activa</td></tr>
+      <tr><td>Alianzas institucionales</td><td>1 gobierno + 1 universidad</td><td>Relaciones sostenidas</td></tr>
+      <tr><td>Seguidores RRSS</td><td>+40% total</td><td>Crecimiento orgánico sostenido</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+  09 · TIMELINE
+════════════════════════════════════════ -->
+<section class="section" id="timeline">
+  <div class="s-tag">Hoja de Ruta</div>
+  <h2 class="s-title">Timeline<br><em>2025–2026</em></h2>
+  <p class="s-intro">Doce meses de construcción. El festival en Mayo 2026 es el pico —pero el trabajo empieza ahora y continúa después.</p>
+
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-date">Mar–Abr<br>2025</div>
+      <div class="tl-body">
+        <h4>⚙️ Mes 1 — Fundamentos</h4>
+        <p>Adoptar la narrativa "Latin culture enriching Darwin". Crear 2 kits de plantillas Canva (ES + EN). Identificar Embajadores Externos (latinos con redes australianas). Contactar CDU para design challenge. Armar grupo interno de voluntarios y definir roles.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">May–Jun<br>2025</div>
+      <div class="tl-body">
+        <h4>🌱 Meses 2–3 — Apertura hacia Darwin</h4>
+        <p>Lanzar flujo semanal (L/J/S). Primeros posts de Pilares 1 y 3 (Cultura + Comunidad). Activar Embajadores Externos. Contactar NT News / ABC Darwin con pitch de historia. Acercamiento a comunidades migrantes aliadas (filipina, griega, etc.).</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Jul–Ago<br>2025</div>
+      <div class="tl-body">
+        <h4>🤝 Meses 4–5 — Sponsors y Alianzas</h4>
+        <p>Presentar propuesta formal a NT Government y CDU. Cerrar primeros sponsors (objetivo: sponsor gastronómico como primer sí). Anuncio oficial bilingüe del 2do Festival con fecha y concepto. Lanzar campaña "Have you tried?" (Pilar Gastronomía).</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Sep–Oct<br>2025</div>
+      <div class="tl-body">
+        <h4>🎤 Meses 6–7 — Producción y Amplificación</h4>
+        <p>Publicar primeros Reels profesionales con sponsors integrados. Lanzar "testigos australianos" — testimonios del 1er festival. Intensificar Pilar 4 (Educación: "What is Carnival?"). Activar embajadas latinoamericanas. Inscripciones de stands abiertas.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Nov–Dic<br>2025</div>
+      <div class="tl-body">
+        <h4>🔥 Meses 8–9 — Momentum</h4>
+        <p>Segundo Reel profesional. Revelar programa del festival (artistas, actividades, gastronomía). Stories diarias. Outreach directo a grupos australianos de Darwin vía Embajadores Externos. Nota periodística en medios locales.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Ene–Feb<br>2026</div>
+      <div class="tl-body">
+        <h4>⏳ Meses 10–11 — Cuenta Regresiva</h4>
+        <p>Contenido diario en Stories (bilingüe). "X semanas para que Darwin descubra Latinoamérica." Registro activo con CTA claro. Último Reel profesional. Activación total de todos los embajadores y aliados. Publicación en todos los grupos de Darwin.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Mar–May<br>2026</div>
+      <div class="tl-body">
+        <h4>🎉 Mes 12 — Festival + Legado</h4>
+        <p>Cobertura en vivo bilingüe. Documentar activamente la asistencia australiana (fotos + testimonios en el momento). Capturar emails con Google Forms en el evento. Tres días después: nota de prensa con cifras de impacto. Una semana después: presentar informe a sponsors, gobierno y CDU. <strong>El día después del festival empieza la construcción del tercero.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="closing">
+    <h3>La Síntesis Final</h3>
+    <p>
+      El festival de carnaval es el vehículo.<br>
+      <strong>El destino es que Darwin reconozca a su comunidad latina como parte esencial de su identidad.</strong><br><br>
+      Cada Reel es una ventana. Cada historia de impacto es un argumento. Cada australiano que viene por primera vez es un embajador que no necesitó convencerse —solo necesitaba una invitación.<br><br>
+      La comunidad latina de Darwin no celebra sola.<br>
+      <strong>Celebra con Darwin. Y esa es la diferencia que lo cambia todo.</strong>
+    </p>
+  </div>
+</section>
+
+<footer>Plan Definitivo · Asociación Latinoamericana de Darwin · Festival Latino 2026 · Darwin, NT · Australia · Low-Cost / High-Impact</footer>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  document.getElementById('nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+</body>
+</html>
